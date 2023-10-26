@@ -53,7 +53,7 @@ fieldset {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   white-space: nowrap;
-} 
+}
 
 .button {
   background-color: transparent;
@@ -61,6 +61,13 @@ fieldset {
   border: 1px solid #fff;
   text-align: center;
   cursor: pointer;
+  font-family: Fira Sans Condensed;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.button:hover {
+  text-decoration: underline;
 }
 
 .content {
@@ -68,10 +75,6 @@ fieldset {
   display: flex;
   align-items: end;
   gap: 31px;
-}
-
-.result {
-  
 }
 
 .result__video-container {
@@ -98,7 +101,7 @@ fieldset {
 .search-form__fieldset-title {
   font-size: 18px;
   font-weight: 400;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .search-form__textfield {
@@ -110,24 +113,64 @@ fieldset {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   padding: 3px 0 0 0;
-  margin-bottom: 4px;
+}
+
+.search-form__textfield:active,
+.search-form__textfield:focus{
+  border:1px solid #fff;
+}
+
+.search-form__textfield:hover {
+  cursor:text;
 }
 
 .search-form__checkbox-list {
-  /* display:flex;
-  justify-content: space-between; */
+  display: flex;
+  gap: 15px;
+  position: relative;
 }
 
-/* .search-form__label-text {
-  position: relative;
-} */
-
 .search-form__pseudo-checkbox::before {
+  position: absolute;
   content: '';
+  top: 2px;
   display: inline-block;
   width: 19px;
   height: 19px;
   border: 1px solid #fff;
+}
+
+.search-form__label {
+  cursor: pointer;
+}
+
+input[name="time"]:focus {
+  padding-left: 1px;
+  padding-right: 1px;
+  border: 1px solid #fff;;
+}
+
+.search-form__label-text {
+  margin-left: 25px;
+}
+
+.search-form__label-text:hover {
+  text-decoration: underline;
+}
+
+.search-form__submit-button {
+  align-self: end;
+  width: 194px;
+  height: 34px;
+}
+
+.search-form__submit-button:active {
+  background-color: #545050;
+}
+
+.search-form__submit-button:hover {
+  
+  border:1px solid #fff;
 }
 
 .more-button {
@@ -162,13 +205,18 @@ fieldset {
 
 .content__list {
   position: relative;
-  margin-top: 26px;
+  margin-top: 22px;
   height: 298px;
   overflow: auto;
+  padding-right: 3px;
 }
 
 .content__video-card-description-container {
- flex-grow: 1;
+  flex-grow: 1;
+}
+
+.content__video-card-description-container:active {
+  background-color: #545050;
 }
 
 .content__video-card-description {
@@ -184,7 +232,7 @@ fieldset {
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
-  object-fit: cover;
+
 }
 
 
@@ -197,8 +245,13 @@ fieldset {
   margin-bottom: 30px;
   align-items: start;
 }
+
+.content__list-item:hover {
+  text-decoration: underline;
+}
+
 .content__list-item:last-child {
-  margin: 0;
+  margin-bottom: 0;
 }
 
 ::-webkit-scrollbar {
