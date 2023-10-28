@@ -2,6 +2,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -61,7 +63,7 @@ fieldset {
   border: 1px solid #fff;
   text-align: center;
   cursor: pointer;
-  font-family: Fira Sans Condensed;
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   font-weight: 700;
 }
@@ -78,7 +80,6 @@ fieldset {
 }
 
 .result__video-container {
-  position: relative;
   width: 711px;
   height: 385px;
 }
@@ -95,7 +96,7 @@ fieldset {
   margin-top: 17px;
   display: grid;
   grid-template-columns: 225px 212px 194px;
-  gap: 40px
+  gap: 40px;
 }
 
 .search-form__fieldset-title {
@@ -106,18 +107,21 @@ fieldset {
 
 .search-form__textfield {
   background-color: transparent;
-  border: none;
-  font-family: Fira Sans Condensed;
-  font-size: 18px;
+  word-spacing: -0.2em;
   width: 100%;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
-  padding: 3px 0 0 0;
+  padding-top: 3px;
 }
 
-.search-form__textfield:active,
-.search-form__textfield:focus{
+.search-form__textfield:active {
+  outline: none;
   border:1px solid #fff;
+  }
+
+.search-form__textfield:focus-visible {
+  outline-offset:1px;
+  outline: 1px solid #fff;
 }
 
 .search-form__textfield:hover {
@@ -127,31 +131,34 @@ fieldset {
 .search-form__checkbox-list {
   display: flex;
   gap: 15px;
-  position: relative;
 }
 
-.search-form__pseudo-checkbox::before {
-  position: absolute;
-  content: '';
-  top: 2px;
+input[type="checkbox"] + span {
+  position: relative;
   display: inline-block;
   width: 19px;
   height: 19px;
   border: 1px solid #fff;
+  vertical-align: middle;
+}
+
+input[type="checkbox"]:checked + span {
+  background-color: #fff;
+  outline-offset: -2px;
+  outline: 1px solid #1b1919;
 }
 
 .search-form__label {
   cursor: pointer;
 }
 
-input[name="time"]:focus {
-  padding-left: 1px;
-  padding-right: 1px;
-  border: 1px solid #fff;;
-}
-
-.search-form__label-text {
-  margin-left: 25px;
+input[type="checkbox"]:focus-visible + span:before {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  bottom: -3px;
+  right: -47px;
+  border: 1px solid #fff;
 }
 
 .search-form__label-text:hover {
@@ -169,8 +176,12 @@ input[name="time"]:focus {
 }
 
 .search-form__submit-button:hover {
-  
   border:1px solid #fff;
+}
+
+.search-form__submit-button:focus-visible {
+  outline-offset: 1px;
+  outline: 1px solid #fff;
 }
 
 .more-button {
@@ -196,6 +207,8 @@ input[name="time"]:focus {
 }
 
 .content__video-card-title {
+  padding-top: 6px;
+  padding-left: 1px;
   font-family: Oswald;
   font-size: 30px;
   font-weight: 700;
@@ -232,13 +245,16 @@ input[name="time"]:focus {
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
-
 }
-
 
 .content__video-card {
   display: flex;
   justify-content: space-between;
+  margin-left: 3px;
+}
+
+.content__video-card:first-child {
+  margin-top: 3px;
 }
 
 .content__list-item {
@@ -255,13 +271,15 @@ input[name="time"]:focus {
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 4px;
   height: 0px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(90, 90, 90, 0.5);
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.1);
 }
