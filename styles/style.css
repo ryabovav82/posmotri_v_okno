@@ -61,7 +61,7 @@ fieldset {
 
 .button {
   background-color: transparent;
-  color: #FFF;
+  color: #fff;
   border: 1px solid currentColor;
   text-align: center;
   cursor: pointer;
@@ -91,7 +91,7 @@ fieldset {
 .content {
   display: flex;
   align-items: end;
-  gap: 31px;
+  gap: 30px;
 }
 
 .result__video-container {
@@ -99,7 +99,6 @@ fieldset {
   width: 711px;
   height: 385px;
 }
-
 
 .result__video {
   object-fit: cover;
@@ -110,9 +109,9 @@ fieldset {
 
 .search-form {
   margin-top: 17px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 39px;
 }
 
 .search-form__fieldset-title {
@@ -121,9 +120,13 @@ fieldset {
   margin-bottom: 5px;
 }
 
+.search-form__fieldset {
+  min-width: 214px;
+}
+
 .search-form__textfield {
+  min-width: 225px;
   background-color: transparent;
-  width: 100%;
   border-top: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
   padding-top: 3px;
@@ -132,12 +135,12 @@ fieldset {
 .search-form__textfield:active {
   outline: none;
   border:1px solid #fff;
-  }
+}
 
  .search-form__textfield:focus {
   outline-offset:1px;
   outline: 1px solid #fff;
-} 
+}
 
 .search-form__textfield:hover {
   cursor:text;
@@ -145,7 +148,7 @@ fieldset {
 
 .search-form__checkbox-list {
   display: flex;
-  gap: 15px;
+  justify-content: space-between;
 }
 
 input[type="checkbox"] + span {
@@ -172,7 +175,12 @@ input[type="checkbox"]:checked + span {
   text-decoration: underline;
 }
 
+.search-form__label-text {
+  margin-left: 7px;
+}
+
 .search-form__submit-button {
+
   align-self: end;
   width: 194px;
   min-height: 34px;
@@ -219,46 +227,24 @@ input[type="checkbox"]:checked + span {
   margin-top: 22px;
   height: 298px;
   overflow: auto;
-  padding-right: 3px;
+  overflow-x: hidden;
 }
 
-.content__video-card-description-container {
-  flex-grow: 1;
+.content__list-item{
+  height: 103px;
+  width: 399px;
+  margin-bottom: 30px;
+  align-items: start;
 }
 
-.content__card-link:active {
-  background-color: #545050;
+.content__list-item:last-child {
+  margin-bottom: 0;
 }
 
-.content__card-link:hover {
-  text-decoration: underline;
-}
-
-.content__video-card-description {
-  margin-top: 6px;
-  line-height: 16.2px;
+.content__video-card {
+  display: flex;
+  justify-content: space-between;
   width: 200px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.content__card-link {
-  margin: 2px;
-  text-decoration: none;
-  color: #fff;
-}
-/* __________________________________________________________________________ */
-.content__card-link:focus {
-outline: none;
-}
-
-.content__card-link:focus-visible {
-  outline: 1px solid #fff;
-  }
-/* __________________________________________________________________________ */
-.content__list-item:has(.content__card-link_current) {
-  background-color: #545050;
 }
 
 .content__video-card-thumbnail {
@@ -268,28 +254,35 @@ outline: none;
   object-position: center;
 }
 
-.content__video-card {
-  display: flex;
-  justify-content: space-between;
-  margin-left: 3px;
+.content__video-card-description {
+  margin-top: 6px;
+  line-height: 90%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.content__video-card:first-child {
-  margin-top: 3px;
+.content__card-link {
+  display: block;
+  margin: 2px;
+  text-decoration: none;
+  color: #fff;
 }
 
-.content__list {
-  position: relative;
+.content__video-card-description-container {
+  flex-grow: 1;
 }
 
-.content__list-item {
-  margin-bottom: 30px;
-  align-items: start;
+.content__card-link:active,
+.content__list-item:has(.content__card-link_current) {
+  background-color: #545050;
 }
 
-.content__list-item:last-child {
-  margin-bottom: 0;
+.content__card-link:hover {
+  text-decoration: underline;
 }
 
-/* необходим реализовать состояние фокуса для всех инпутов гибким решением , для реализации этого поведения необходимо отслеживать событие focus-visible на сложенном в обертку .search-form__label инпуте
-вам поможет псевдокласс has */
+.search-form__label:has(input[type="checkbox"]:focus-visible),
+.content__card-link:focus-visible {
+  outline: 1px solid #ffffff;
+}
