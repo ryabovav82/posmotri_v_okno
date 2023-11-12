@@ -222,7 +222,6 @@ input[type="checkbox"]:checked + span {
   margin-top: 22px;
   height: 298px;
   overflow: auto;
-  overflow-x: фгещ;
 }
 
 .content__list-item{
